@@ -6,11 +6,18 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:29:12 by mnachit           #+#    #+#             */
-/*   Updated: 2024/03/05 11:18:42 by mnachit          ###   ########.fr       */
+/*   Updated: 2024/03/21 00:46:54 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_isdigit(int c)
+{
+	if (c >= 48 && c <= 57)
+		return (c);
+	return (0);
+}
 
 char	*ft_substr(char *s, unsigned int start, size_t len)
 {

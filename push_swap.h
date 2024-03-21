@@ -6,16 +6,17 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 14:44:43 by mnachit           #+#    #+#             */
-/*   Updated: 2024/03/17 20:50:12 by mnachit          ###   ########.fr       */
+/*   Updated: 2024/03/21 00:57:22 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 
 #define PUSH_SWAP_H
-# include "ft_printf/ft_printf.h"
 # include "stdio.h"
 # include "limits.h"
+# include "stdlib.h"
+# include "unistd.h"
 
 typedef struct s_list
 {
@@ -26,6 +27,7 @@ typedef struct s_list
 	struct s_list	*next;
 	struct s_list	*targ;
 }t_list;
+
 void set_position(t_list *a);
 void    ft_show_error(char *s);
 char    **read_the_number(int ac, char **av);
@@ -56,4 +58,8 @@ int	ft_bigger(int a, int b);
 void ft_rr(t_list **a, t_list **b, t_list *node);
 void ft_rrr(t_list **a, t_list **b, t_list *node);
 t_list *biggest_node(t_list *b);
+void    ft_check_double(char **matrix);
+int	ft_isdigit(int c);
+void ft_check_number(char **matrix);
+
 #endif

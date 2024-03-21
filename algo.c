@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 00:35:29 by mnachit           #+#    #+#             */
-/*   Updated: 2024/03/17 23:49:01 by mnachit          ###   ########.fr       */
+/*   Updated: 2024/03/21 14:41:10 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void    ft_sort_five(t_list **a, t_list **b)
         set_position(*a);
         cheapest = smallest_node(*a);
         finalize_ratation(a, cheapest, 'a');
-        ft_pa(b, a, 'a');
+        ft_pa(b, a, 'b');
     }
     ft_three(a);
    while (*b)
@@ -154,6 +154,11 @@ void    ft_stack_sort(t_list **a, t_list **b)
     if (stack_len(*a) == 5)
     {
         ft_sort_five(a, b);
+        while (*a)
+        {
+            printf("%d  \n", (*a)->content);
+            *a = (*a)->next;
+        }
         return ;
     }
     ft_pa(b, a, 'b');
@@ -168,4 +173,5 @@ void    ft_stack_sort(t_list **a, t_list **b)
     set_bigger_intop(b);
     while (*b)
         ft_pa(a, b, 'a');
+
 }

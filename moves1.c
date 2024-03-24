@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 01:38:38 by mnachit           #+#    #+#             */
-/*   Updated: 2024/03/17 02:45:21 by mnachit          ###   ########.fr       */
+/*   Updated: 2024/03/23 17:40:49 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void    ft_pa(t_list **a, t_list **b, char c)
 {
+
     t_list *tmp;
     ft_lstadd_front(a, ft_lstnew((*b)->content));
     tmp = *b;
@@ -27,6 +28,8 @@ void    ft_pa(t_list **a, t_list **b, char c)
 
 void ft_rr(t_list **a, t_list **b, t_list *node)
 {
+    if (!*a || !*b)
+        exit(0);
     while (*a != node && *b != node->targ)
     {
         ft_ra(a, 'n');
@@ -40,6 +43,8 @@ void ft_rr(t_list **a, t_list **b, t_list *node)
 
 void ft_rrr(t_list **a, t_list **b, t_list *node)
 {
+    if (!*a || !*b)
+        exit(0);
     while (*a != node && *b != node->targ)
     {
         ft_rra(a, 'n');

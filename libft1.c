@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:28:47 by mnachit           #+#    #+#             */
-/*   Updated: 2024/03/18 23:50:47 by mnachit          ###   ########.fr       */
+/*   Updated: 2024/03/22 00:34:26 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,19 @@ char	**ft_split(char *s, char c)
 	if (!str)
 		return (NULL);
 	return (ft_daym(s, str, c, length));
+}
+char	*ft_strchr(char *s, int c)
+{
+	char	*str;
+	size_t	i;
+
+	str = s;
+	i = 0;
+	while (i <= ft_strlen(s))
+	{
+		if (str[i] == (char )c)
+			return (str + i);
+		i++;
+	}
+	return (0);
 }

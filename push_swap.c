@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 21:01:55 by mnachit           #+#    #+#             */
-/*   Updated: 2024/03/21 00:58:27 by mnachit          ###   ########.fr       */
+/*   Updated: 2024/03/22 16:15:51 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int main(int ac, char **av)
 {
     char **matrix;
-    t_list  *a;
-    t_list  *b;
+    t_list  *a = NULL;
+    t_list  *b = NULL;
     int     i;
     
     i = 0;
@@ -30,7 +30,7 @@ int main(int ac, char **av)
     if (a && !is_sorted(a))
     {
         if (stack_len(a) == 2 && !check_difference(a))
-            ft_sa(&a);
+            ft_sa(&a, 'a');
         else if (stack_len(a) == 3)
             ft_three(&a);
         else

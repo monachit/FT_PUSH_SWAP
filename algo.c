@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 00:35:29 by mnachit           #+#    #+#             */
-/*   Updated: 2024/03/21 14:41:10 by mnachit          ###   ########.fr       */
+/*   Updated: 2024/03/22 16:16:01 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_three(t_list **a)
     else if ((*a)->next->content == highest)
         ft_rra(a, 'a');
     if ((*a)->content > (*a)->next->content)
-        ft_sa(a);
+        ft_sa(a, 'a');
 }
 t_list  *smallest_node(t_list *a)
 {

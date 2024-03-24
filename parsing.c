@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 01:24:10 by mnachit           #+#    #+#             */
-/*   Updated: 2024/03/21 01:02:24 by mnachit          ###   ########.fr       */
+/*   Updated: 2024/03/23 21:36:08 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,24 @@ void    ft_check_double(char **matrix)
         z = 0;
         i++; 
     }
+}
+
+void ft_check_doubleN(char **matrix)
+{
+    int i;
+    int j;
+    
+    j = 0;
+    i = 0;
+    while (matrix[i])
+    {
+        while (matrix[j])
+        {
+            if (i != j && !ft_strcmp(matrix[i], matrix[j]))
+                exit(0);
+            j++;
+        }
+        i++;
+        j = 0;
+    }    
 }

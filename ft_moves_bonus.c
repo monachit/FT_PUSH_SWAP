@@ -6,76 +6,72 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 00:38:29 by mnachit           #+#    #+#             */
-/*   Updated: 2024/03/23 17:42:30 by mnachit          ###   ########.fr       */
+/*   Updated: 2024/03/31 23:53:41 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ft_rr_b(t_list **a, t_list **b)
+void	ft_rr_b(t_list **a, t_list **b)
 {
-    if (!*a || !*b)
-        exit(0);
-    ft_ra(a, 'n');
-    ft_ra(b, 'n');
+	if (*a && (*a)->next)
+		ft_ra(a, 'n');
+	if (*b && (*b)->next)
+		ft_ra(b, 'n');
 }
 
-void    ft_rrr_b(t_list **a, t_list **b)
+void	ft_rrr_b(t_list **a, t_list **b)
 {
-    if (!*a || !*b)
-        exit(0);
-    ft_rra(a, 'n');
-    ft_rra(b, 'n');
+	if (*a && (*a)->next)
+		ft_rra(a, 'n');
+	if (*b && (*b)->next)
+		ft_rra(b, 'n');
 }
 
-void    ft_ss(t_list **a, t_list **b)
+void	ft_ss(t_list **a, t_list **b)
 {
-    if (!*a || !*b)
-        exit(0);
-    ft_sa(a, 'n');
-    ft_sb(a, 'n');    
+	if (*a && (*a)->next)
+		ft_sa(a, 'n');
+	if (*b && (*b)->next)
+		ft_sb(a, 'n');
 }
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_pa_b(t_list **a, t_list **b)
 {
-	int i;
+	t_list	*tmp;
 
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return (s1[i] - s2[i]);
+	if (!*b)
+		return ;
+	ft_lstadd_front(a, ft_lstnew((*b)->content));
+	tmp = *b;
+	*b = (*b)->next;
+	free(tmp);
 }
 
-void ft_moves_bonus(t_list **a, t_list **b, char *str)
+void	ft_moves_bonus(t_list **a, t_list **b, char *s, char **m)
 {
-    if (!ft_strcmp(str, "ra\n"))
-        ft_ra(a, 'n');
-    else if (!ft_strcmp(str, "rb\n"))
-        ft_ra(a, 'n');
-    else if (!ft_strcmp(str, "sa\n"))
-        ft_sa(a, 'n');
-    else if (!ft_strcmp(str, "sb\n"))
-        ft_sb(b, 'n');
-    else if (!ft_strcmp(str, "pa\n"))
-    {
-        if (!*b)
-            exit(0);
-        ft_pa(a, b, '1');
-    }
-    else if (!ft_strcmp(str, "pb\n"))
-    {
-        if (!*a)
-            exit(0);
-        ft_pa(b, a, '0');
-    }
-    else if (!ft_strcmp(str, "rra\n"))
-        ft_rra(a, 'n');
-    else if (!ft_strcmp(str, "rrb\n"))
-        ft_rra(b, 'n');
-    else if (!ft_strcmp(str, "rr\n"))
-        ft_rr_b(a, b);
-    else if (!ft_strcmp(str, "rrr\n"))
-        ft_rrr_b(a, b);
-    else if (!ft_strcmp(str, "ss\n"))
-        ft_ss(a, b);
+	if (!ft_strcmp(s, "ra\n"))
+		ft_ra_b(a);
+	else if (!ft_strcmp(s, "rb\n"))
+		ft_ra_b(b);
+	else if (!ft_strcmp(s, "sa\n"))
+		ft_sa_b(a);
+	else if (!ft_strcmp(s, "sb\n"))
+		ft_sb_b(b);
+	else if (!ft_strcmp(s, "pa\n"))
+		ft_pa_b(a, b);
+	else if (!ft_strcmp(s, "pb\n"))
+		ft_pa_b(b, a);
+	else if (!ft_strcmp(s, "rra\n"))
+		ft_rra_b(a);
+	else if (!ft_strcmp(s, "rrb\n"))
+		ft_rra_b(b);
+	else if (!ft_strcmp(s, "rr\n"))
+		ft_rr_b(a, b);
+	else if (!ft_strcmp(s, "rrr\n"))
+		ft_rrr_b(a, b);
+	else if (!ft_strcmp(s, "ss\n"))
+		ft_ss(a, b);
+	else
+		ft_finish1(a, b, s, m);
 }

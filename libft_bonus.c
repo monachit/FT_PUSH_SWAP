@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 00:25:33 by mnachit           #+#    #+#             */
-/*   Updated: 2024/03/22 00:27:33 by mnachit          ###   ########.fr       */
+/*   Updated: 2024/03/24 21:14:46 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strdup(const char *src)
 {
-	size_t		i;
-	size_t		size;
-	char		*ls;
+	size_t	i;
+	size_t	size;
+	char	*ls;
 
 	i = 0;
 	size = 0;
@@ -27,7 +27,7 @@ char	*ft_strdup(const char *src)
 		return (NULL);
 	while (src[i] != '\0')
 	{
-		ls[i] = (char )src[i];
+		ls[i] = (char)src[i];
 		i++;
 	}
 	ls[i] = '\0';

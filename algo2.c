@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 05:02:34 by mnachit           #+#    #+#             */
-/*   Updated: 2024/03/24 20:22:14 by mnachit          ###   ########.fr       */
+/*   Updated: 2024/03/30 00:30:31 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	set_position(t_list *a)
 
 void	set_node_targ(t_list *a, t_list *b)
 {
-	t_list		*tmp;
-	int			number;
+	t_list	*tmp;
+	int		number;
 
 	while (a)
 	{
@@ -71,13 +71,8 @@ void	set_node_targ(t_list *a, t_list *b)
 	}
 }
 
-void	set_node_cost(t_list *a, t_list *b)
+void	set_node_cost(t_list *a, int a_len, int b_len)
 {
-	int	a_len;
-	int	b_len;
-
-	a_len = stack_len(a);
-	b_len = stack_len(b);
 	while (a)
 	{
 		if (a->is_in_top)
@@ -92,8 +87,8 @@ void	set_node_cost(t_list *a, t_list *b)
 		{
 			a->cost = (a_len - a->index);
 			if (!(a->targ->is_in_top))
-				a->cost = ft_bigger((a_len - a->index),
-						(b_len - a->targ->index));
+				a->cost = ft_bigger((a_len - a->index), (b_len
+							- a->targ->index));
 			else
 				a->cost += a->targ->index;
 		}
@@ -103,8 +98,13 @@ void	set_node_cost(t_list *a, t_list *b)
 
 void	initialize(t_list *a, t_list *b)
 {
+	int		a_len;
+	int		b_len;
+
+	a_len = stack_len(a);
+	b_len = stack_len(b);
 	set_position(a);
 	set_position(b);
 	set_node_targ(a, b);
-	set_node_cost(a, b);
+	set_node_cost(a, a_len, b_len);
 }
